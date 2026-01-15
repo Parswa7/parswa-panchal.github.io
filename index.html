@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parswa Panchal | IT Professional Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header/Hero Section */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 80px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.3em;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            color: #2c3e50;
+        }
+
+        .skill-category li::before {
+            content: '✓ ';
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-item h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .experience-meta {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .experience-item ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .experience-item li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: scale(1.05);
+        }
+
+        .cert-card h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin: 5px 5px 0 0;
+            color: #667eea;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="profile-img">PP</div>
+            <h1>Parswa Panchal</h1>
+            <p class="tagline">Technical Support Specialist | Network Engineer | IT Professional</p>
+            <p>Auckland, New Zealand</p>
+            <div class="contact-links">
+                <a href="mailto:parswapanchal7@gmail.com">📧 Email</a>
+                <a href="tel:0225440347">📱 022 544 0347</a>
+                <a href="https://linkedin.com/in/parswa-panchal-572569192/" target="_blank">💼 LinkedIn</a>
+                <a href="#contact">📞 Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Stats Section -->
+        <section>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">5+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Customer Satisfaction</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">350+</span>
+                    <span class="stat-label">Users Supported</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Certifications</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm a customer-focused Technical Support Specialist and Network Engineer with over 5 years of experience in SaaS environments, enterprise IT support, and network infrastructure. I specialize in troubleshooting complex technical issues, providing exceptional customer support, and ensuring maximum availability of IT systems.</p>
+                <p style="margin-top: 20px;">My unique combination of technical expertise and business operations experience allows me to understand not just the technical problems customers face, but the business impact behind them. I'm passionate about helping customers succeed and building reliable, scalable IT infrastructure.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Customer Support</h3>
+                    <ul>
+                        <li>Technical Troubleshooting</li>
+                        <li>Customer Query Resolution</li>
+                        <li>Root Cause Analysis</li>
+                        <li>SaaS Platform Support</li>
+                        <li>Case Management</li>
+                        <li>Chat & Video Support</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Network Engineering</h3>
+                    <ul>
+                        <li>LAN/WAN Configuration</li>
+                        <li>Router & Switch Setup</li>
+                        <li>Firewall Management</li>
+                        <li>VoIP/SIP Systems</li>
+                        <li>DHCP/DNS Management</li>
+                        <li>Network Troubleshooting</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Systems Administration</h3>
+                    <ul>
+                        <li>Windows Server (MCSA)</li>
+                        <li>Linux/RHEL (RHCSA)</li>
+                        <li>Active Directory</li>
+                        <li>Microsoft 365</li>
+                        <li>Azure Cloud</li>
+                        <li>System Deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Business Operations</h3>
+                    <ul>
+                        <li>Inventory Management</li>
+                        <li>Supply Chain Operations</li>
+                        <li>Warehouse Management</li>
+                        <li>Business Systems</li>
+                        <li>Process Optimization</li>
+                        <li>Multi-Channel Operations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Operations Supervisor & Manager</h3>
+                <p class="experience-meta">Retail Operations, Auckland | Oct 2023 - Present</p>
+                <ul>
+                    <li>Gained hands-on experience running small-medium business with P&L responsibility</li>
+                    <li>Managed warehouse operations, inventory systems, and supply chain logistics</li>
+                    <li>Increased operational efficiency by 70% through process optimization</li>
+                    <li>Coordinated multiple sales channels and supplier relationships</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Technical Support Specialist - Level 1</h3>
+                <p class="experience-meta">Health Alliance | Mar 2022 - Oct 2023</p>
+                <ul>
+                    <li>Provided exceptional customer support for 150+ users in SaaS environment achieving 98% satisfaction</li>
+                    <li>Resolved customer queries via cases, chat, and proactive Zoom calls</li>
+                    <li>Troubleshot O365, Active Directory, and enterprise applications</li>
+                    <li>Improved team efficiency by 30% through systematic problem-solving</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Desktop Engineer - Network & Systems</h3>
+                <p class="experience-meta">DTSL | Mar 2022 - Oct 2023</p>
+                <ul>
+                    <li>Deployed, configured, and maintained IT services for 200+ end-users</li>
+                    <li>Reduced support backlog by 35% through root cause analysis approach</li>
+                    <li>Configured LAN/WAN infrastructure, routers, switches, and firewalls</li>
+                    <li>Developed SOPs supporting ISO 27001 and CMMI compliance</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Helpdesk Support - Technical Services</h3>
+                <p class="experience-meta">Axiom Technologies | Jan 2021 - Jan 2022</p>
+                <ul>
+                    <li>Provided technical support for ISP and business customers</li>
+                    <li>Troubleshot network infrastructure, FTTX/COAX systems, and connectivity issues</li>
+                    <li>Managed SLA-based tickets with appropriate escalation procedures</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>IT Support Specialist</h3>
+                <p class="experience-meta">EIL Global | Jan 2021 - Dec 2021</p>
+                <ul>
+                    <li>Diagnosed network outages, VLAN issues, and system problems</li>
+                    <li>Improved documentation efficiency by 25% through technical manual development</li>
+                    <li>Provided remote and on-site LAN/WAN support</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h4>MCSA</h4>
+                    <p>Microsoft Certified Solutions Associate</p>
+                    <p>Windows Server 2016</p>
+                </div>
+                <div class="cert-card">
+                    <h4>RHCSA</h4>
+                    <p>Red Hat Certified System Administrator</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Azure Fundamentals</h4>
+                    <p>AZ-900</p>
+                    <p>Microsoft Azure</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Network+</h4>
+                    <p>CompTIA Network+</p>
+                    <p>Networking Professional</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Google Cloud</h4>
+                    <p>Digital Transformation</p>
+                </div>
+                <div class="cert-card">
+                    <h4>Python</h4>
+                    <p>Programming with Python</p>
+                    <p>DataCamp</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects/Achievements Section -->
+        <section id="projects">
+            <h2>Key Achievements & Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Customer Satisfaction Excellence</h3>
+                    <p>Achieved 98% customer satisfaction rating through exceptional support and clear communication in SaaS environment supporting 150+ users.</p>
+                    <div>
+                        <span class="project-tag">Customer Support</span>
+                        <span class="project-tag">SaaS</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Support Efficiency Improvement</h3>
+                    <p>Reduced support backlog by 35% through systematic root cause analysis and improved troubleshooting processes.</p>
+                    <div>
+                        <span class="project-tag">Process Optimization</span>
+                        <span class="project-tag">Technical Support</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>O365 Migration Support</h3>
+                    <p>Successfully supported enterprise O365 migration project ensuring smooth transition for 150+ users with minimal downtime.</p>
+                    <div>
+                        <span class="project-tag">Cloud Migration</span>
+                        <span class="project-tag">Microsoft 365</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Network Infrastructure Deployment</h3>
+                    <p>Deployed and configured LAN/WAN infrastructure for enterprise environment supporting 200+ endpoints with high availability.</p>
+                    <div>
+                        <span class="project-tag">Network Engineering</span>
+                        <span class="project-tag">Infrastructure</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>ISO 27001 Compliance</h3>
+                    <p>Developed and implemented SOPs supporting ISO 27001 and CMMI Level 1-2 compliance for IT operations.</p>
+                    <div>
+                        <span class="project-tag">Compliance</span>
+                        <span class="project-tag">Documentation</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Business Operations Management</h3>
+                    <p>Increased operational efficiency by 70% managing inventory, supply chain, and multi-channel sales operations.</p>
+                    <div>
+                        <span class="project-tag">Business Operations</span>
+                        <span class="project-tag">Inventory Management</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <p>I'm always interested in new opportunities and challenges. Feel free to reach out!</p>
+                <p>📧 Email: <a href="mailto:parswapanchal7@gmail.com">parswapanchal7@gmail.com</a></p>
+                <p>📱 Phone: <a href="tel:0225440347">022 544 0347</a></p>
+                <p>💼 LinkedIn: <a href="https://linkedin.com/in/parswa-panchal-572569192/" target="_blank">linkedin.com/in/parswa-panchal-572569192/</a></p>
+                <p>📍 Location: Auckland, New Zealand</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Parswa Panchal. All rights reserved.</p>
+        <p>Technical Support Specialist | Network Engineer | IT Professional</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
